@@ -1,0 +1,72 @@
+0.
+BMP: 4bn
+GIF: 8 bits per pixel - 256 colors
+JPEG: 24 bits per pixel - 16 million colors
+PNG: up to 16 bits per pixel - 65536 colors
+1.  GIF
+2.  TODO
+3.  TODO
+4.  TODO
+5.  TODO
+6.  TODO
+
+7. What’s stdint.h?
+
+    stdint.h is a header file in the C standard library that provides a set of typedefs that specify exact-width
+    integer types.
+    
+    I assume this just makes the data more standardized and less open to interpretation.
+
+8. What’s the point of using uint8_t, uint32_t, int32_t, and uint16_t in a program?
+
+    C has very loose definitions on its basic integer data types (char, short, int, long, and long long). The language guarantees that they can represent at least some range of values, but any particular platform (compiler, operating system, hardware) might be larger than that.
+    A good example is long. On one machine, it might be 32 bits (the minimum required by C). On another, it's 64 bits.
+    So, what do you do if you want an integer type that's precisely 32 bits long? That's where int32_t comes in: it's an alias for whatever integer type your particular system has that is exactly 32 bits. uint32_t is the same, but for unsigned 32 bit values. On one system, that might be unsigned int and on another unsigned long.
+
+9.  How many bytes is a BYTE, a DWORD, a LONG, and a WORD, respectively?
+
+    BYTE: 1
+    DWORD: 4
+    LONG: 4
+    WORD: 2
+    
+10. What (in ASCII, decimal, or hexadecimal) must the first two bytes of any BMP file be? (Leading bytes used to identify file formats (with high probability) are generally called "magic numbers.)"
+
+    The first two bytes of a BMP is a WORD and denotes bfType, which specifies the file type. It must be
+ 	set to the signature word BM (0x4D42) to indicate bitmap.
+ 	
+11. What’s the difference between bfSize and biSize?
+
+    bfSize - The size, in bytes, of the bitmap file (size of image and headers)
+    biSize - The number of bytes required by the structure (just the size of the actual pixels)
+    
+12. What does it mean if biHeight is negative?
+
+    If biHeight is positive, the bitmap is a bottom-up DIB (device-independent bitmap)
+	and its origin is the lower left corner.
+	
+	If biHeight is negative, the bitmap is a top-down DIB (device-independent bitmap)
+	and its origin is the upper left corner
+
+13. Why might fopen return NULL in copy.c:37?
+
+    If for some reason the program cannot create the file to write to.
+
+14. Why is the third argument to fread always 1 in our code?
+
+    Because it's reading 1 pixel at a time?
+    
+15. What value does copy.c:70 assign padding if bi.biWidth is 3?
+
+    0?
+    
+16. What does fseek do?
+    
+    Skips over any padding
+
+17. What is SEEK_CUR?
+
+    This is an integer constant which, when used as the whence argument to the fseek or fseeko function,
+	specifies that the offset provided is relative to the current file position
+
+18. Rick Astley

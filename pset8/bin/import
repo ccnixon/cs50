@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+    require("../includes/config.php");
+    
+    // store path to data from command line arg as variable
+    
+    $file = argv[1];
+    print $file;
+
+?>

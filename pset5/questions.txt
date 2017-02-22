@@ -1,0 +1,15 @@
+0.  The longest word in the english dictionary
+1.  getrusage returns information describing the resources utilized by the current process
+2. 16
+3. 
+4.  The for loop: 
+    - reads a character from the text and checks to make sure it's not the end of the file
+    - it then checks to make sure it is an alphabetical character
+    - if so, it adds it to the current word it is building
+    - if it reaches the end of the word, it checks that word's spelling
+5.  because it needs to make sure it is passing in actual words without punctuation or numbers
+6.  because it would mess up the program if they were overidden
+7.  I used a hashtable/linked list combo
+8.  .10
+9.  none, performance was comparable to staff implementation
+10. No, I feel it is pretty solid
